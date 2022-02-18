@@ -1,0 +1,56 @@
+# Default values for home-k8s.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## @section Common parameters
+
+## @param nameOverride String to partially override common.names.name
+##
+nameOverride: ""
+
+## @param fullnameOverride String to fully override common.names.fullname
+##
+fullnameOverride: ""
+
+## @param commonLabels Labels to add to all deployed objects
+##
+commonLabels: {}
+
+## @param commonAnnotations Annotations to add to all deployed objects
+##
+commonAnnotations: {}
+
+deploy:
+  ## @param deploy.containerPorts.http instance http port
+  ##
+  containerPorts:
+    http: 0
+
+  ## deploy image 
+  ## @param deploy.image.repository deploy image repository
+  ## @param deploy.image.tag deploy image tag (immutable tags are recommended)
+  ## @param deploy.image.pullPolicy deploy image pull policy
+  ##
+  image:
+    repository: ""
+    tag: ""
+    pullPolicy: IfNotPresent
+
+  ## @param deploy.extraVolumes Optionally specify extra list of additional volumes for the Redis&trade; master pod(s)
+  ##
+  extraVolumes: []
+  ## @param deploy.extraVolumeMounts Optionally specify extra list of additional volumeMounts
+  ##
+  extraVolumeMounts: []
+
+ingress:
+  enabled: false
+
+  pathType: ImplementationSpecific
+  className: "traefik"
+  annotations: {}
+
+  hostname: ""
+  path: /
+
+  

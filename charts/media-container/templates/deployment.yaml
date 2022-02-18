@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace | quote }}
+  name: {{ include "common.names.fullname" . | quote }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+    app.kubernetes.io/component: {{ include "common.names.name" . | quote }}
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {{- include "common.labels.matchLabels" . | nindent 6 }}
+      app.kubernetes.io/component: {{ include "common.names.name" . | quote }}
+  template:
+    metadata:
+      namespace: {{ .Release.Namespace | quote }}
+      name: {{ include "common.names.fullname" . | quote }}
+      labels: {{- include "common.labels.standard" . | nindent 8 }}
+        app.kubernetes.io/component: {{ include "common.names.name" . | quote }}
+    spec:
+      containers:
+        - name: {{ include "common.names.name" . | quote }}
+          image: {{ (printf "%s:%s" .Values.deploy.image.repository .Values.deploy.image.tag) | quote }} 
+          imagePullPolicy: {{ .Values.deploy.image.pullPolicy | quote }}
+          ports:
+{{- range $k, $v := .Values.deploy.containerPorts }}
+  {{- if kindIs "map" $v }}
+            - containerPort: {{ $v.port }}
+              protocol: {{ $v.protocol }}
+  {{- else }}
+            - containerPort: {{ $v }}
+              protocol: TCP
+  {{- end }}
+{{- end }}  
+          volumeMounts: {{- .Values.deploy.extraVolumeMounts | toYaml | nindent 12 }}
+      volumes: {{- .Values.deploy.extraVolumes | toYaml | nindent 8 }}

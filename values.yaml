@@ -165,8 +165,11 @@ sonarr:
 
 transmission:
   deploy:
+    env:
+      - name: TRANSMISSION_WEB_HOME
+        value: "/flood-for-transmission/"
     containerPorts:
-      http: 80
+      http: 9091
       bit-torrent: 51413
       bit-torrent-udp:
         port: 51413

@@ -23,6 +23,9 @@ spec:
         - name: {{ include "common.names.name" . | quote }}
           image: {{ (printf "%s:%s" .Values.deploy.image.repository .Values.deploy.image.tag) | quote }} 
           imagePullPolicy: {{ .Values.deploy.image.pullPolicy | quote }}
+{{- if .Values.deploy.env }}
+          env: {{- .Values.deploy.env | toYaml | nindent 12 }}
+{{- end }}
           ports:
 {{- range $k, $v := .Values.deploy.containerPorts }}
   {{- if kindIs "map" $v }}

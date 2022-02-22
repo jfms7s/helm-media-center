@@ -13,7 +13,6 @@ spec:
     ports:
 {{- range $k, $v := .Values.deploy.containerPorts }}
   {{- if kindIs "map" $v }}
-        #asd
       - name: {{ $k }}
         port: {{ $v.port }}
         protocol: {{ $v.protocol }}

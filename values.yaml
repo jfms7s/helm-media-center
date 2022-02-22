@@ -1,23 +1,37 @@
+$refs:
+  nfs-server: &nfs-server 192.168.0.4
+  dockerImages:
+    ## https://hub.docker.com/r/linuxserver/bazarr/tags
+    bazarr: &bazarr "1.0.2"
+    ## https://hub.docker.com/r/linuxserver/overseerr/tags
+    overseerr: &overseerr "1.28.0"
+    ## https://hub.docker.com/r/linuxserver/prowlarr/tags
+    prowlarr: &prowlarr "0.2.0-nightly"
+    ## https://hub.docker.com/r/linuxserver/radarr/tags
+    radarr: &radarr "4.0.4"
+    sonarr: &sonarr "3.0.6"
+    transmission: &transmission "3.00-r5-ls112"
+
 bazaar:
   deploy:
     containerPorts:
       http: 6767
     image:
       repository: "linuxserver/bazarr"
-      tag: "1.0.1"
+      tag: *bazarr
       pullPolicy: IfNotPresent
     extraVolumes: 
       - name: config-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/bazarr-config
       - name: downloads-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volume1/media
     extraVolumeMounts: 
       - mountPath: /config
@@ -37,20 +51,20 @@ overseerr:
       http: 5055
     image:
       repository: "lscr.io/linuxserver/overseerr"
-      tag: "1.27.0"
+      tag: *overseerr
       pullPolicy: IfNotPresent
     extraVolumes: 
       - name: config-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/overseerr-config
       - name: downloads-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volume1/media
     extraVolumeMounts: 
       - mountPath: /config
@@ -70,20 +84,20 @@ prowlarr:
       http: 9696
     image:
       repository: "linuxserver/prowlarr"
-      tag: "1.8.1259"
+      tag: *prowlarr
       pullPolicy: IfNotPresent
     extraVolumes: 
       - name: config-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/prowlarr-config
       - name: downloads-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volume1/media
     extraVolumeMounts: 
       - mountPath: /config
@@ -103,20 +117,20 @@ radarr:
       http: 7878
     image:
       repository: "linuxserver/radarr"
-      tag: "0.0.5473"
+      tag: *radarr
       pullPolicy: IfNotPresent
     extraVolumes: 
       - name: config-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/radarr-config
       - name: downloads-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volume1/media
     extraVolumeMounts: 
       - mountPath: /config
@@ -136,20 +150,20 @@ sonarr:
       http: 8989
     image:
       repository: "linuxserver/sonarr"
-      tag: "3.0.6"
+      tag: *sonarr
       pullPolicy: IfNotPresent
     extraVolumes: 
       - name: config-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/sonarr-config
       - name: downloads-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volume1/media
     extraVolumeMounts: 
       - mountPath: /config
@@ -176,20 +190,20 @@ transmission:
         protocol: UDP
     image:
       repository: "linuxserver/transmission"
-      tag: "2021.11.18"
+      tag: *transmission
       pullPolicy: IfNotPresent
     extraVolumes: 
       - name: config-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/transmission-config
       - name: downloads-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
         nfs: 
-          server: 192.168.0.4
+          server: *nfs-server
           path: /volume1/media
     extraVolumeMounts: 
       - mountPath: /config

@@ -2,15 +2,19 @@ $refs:
   nfs-server: &nfs-server 192.168.0.4
   dockerImages:
     ## https://hub.docker.com/r/linuxserver/bazarr/tags
-    bazarr: &bazarr "1.0.2"
+    bazarr: &bazarr "1.1.0"
     ## https://hub.docker.com/r/linuxserver/overseerr/tags
-    overseerr: &overseerr "1.28.0"
+    overseerr: &overseerr "1.29.1"
     ## https://hub.docker.com/r/linuxserver/prowlarr/tags
-    prowlarr: &prowlarr "0.2.0-nightly"
+    prowlarr: &prowlarr "0.4.3-nightly"
     ## https://hub.docker.com/r/linuxserver/radarr/tags
-    radarr: &radarr "4.0.4"
-    sonarr: &sonarr "3.0.6"
-    transmission: &transmission "3.00-r5-ls112"
+    radarr: &radarr "4.1.0"
+    ## https://hub.docker.com/r/linuxserver/sonarr/tags
+    sonarr: &sonarr "3.0.8"
+    ## https://hub.docker.com/r/linuxserver/transmission/tags
+    transmission: &transmission "version-3.00-r5"
+    ## https://hub.docker.com/r/linuxserver/tautulli/tags
+    tautulli: &tautulli "2.10.2"
 
 bazaar:
   deploy:
@@ -20,25 +24,25 @@ bazaar:
       repository: "linuxserver/bazarr"
       tag: *bazarr
       pullPolicy: IfNotPresent
-    extraVolumes: 
+    extraVolumes:
       - name: config-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/bazarr-config
       - name: downloads-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
-        nfs: 
+        nfs:
           server: *nfs-server
-          path: /volume1/media
-    extraVolumeMounts: 
+          path: /volume1/media/media
+    extraVolumeMounts:
       - mountPath: /config
         name: config-volume
-      - mountPath: /mnt/archive
+      - mountPath: /mnt/archive/media
         name: archive-volume
-      - mountPath: /mnt/downloads 
+      - mountPath: /mnt/downloads
         name: downloads-volume
   ingress:
     enabled: false
@@ -53,25 +57,25 @@ overseerr:
       repository: "lscr.io/linuxserver/overseerr"
       tag: *overseerr
       pullPolicy: IfNotPresent
-    extraVolumes: 
+    extraVolumes:
       - name: config-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/overseerr-config
       - name: downloads-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
-        nfs: 
+        nfs:
           server: *nfs-server
-          path: /volume1/media
-    extraVolumeMounts: 
+          path: /volume1/media/media
+    extraVolumeMounts:
       - mountPath: /config
         name: config-volume
-      - mountPath: /mnt/archive
+      - mountPath: /mnt/archive/media
         name: archive-volume
-      - mountPath: /mnt/downloads 
+      - mountPath: /mnt/downloads
         name: downloads-volume
   ingress:
     enabled: false
@@ -86,25 +90,25 @@ prowlarr:
       repository: "linuxserver/prowlarr"
       tag: *prowlarr
       pullPolicy: IfNotPresent
-    extraVolumes: 
+    extraVolumes:
       - name: config-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/prowlarr-config
       - name: downloads-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
-        nfs: 
+        nfs:
           server: *nfs-server
-          path: /volume1/media
-    extraVolumeMounts: 
+          path: /volume1/media/media
+    extraVolumeMounts:
       - mountPath: /config
         name: config-volume
-      - mountPath: /mnt/archive
+      - mountPath: /mnt/archive/media
         name: archive-volume
-      - mountPath: /mnt/downloads 
+      - mountPath: /mnt/downloads
         name: downloads-volume
   ingress:
     enabled: false
@@ -119,25 +123,25 @@ radarr:
       repository: "linuxserver/radarr"
       tag: *radarr
       pullPolicy: IfNotPresent
-    extraVolumes: 
+    extraVolumes:
       - name: config-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/radarr-config
       - name: downloads-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
-        nfs: 
+        nfs:
           server: *nfs-server
-          path: /volume1/media
-    extraVolumeMounts: 
+          path: /volume1/media/media
+    extraVolumeMounts:
       - mountPath: /config
         name: config-volume
-      - mountPath: /mnt/archive
+      - mountPath: /mnt/archive/media
         name: archive-volume
-      - mountPath: /mnt/downloads 
+      - mountPath: /mnt/downloads
         name: downloads-volume
   ingress:
     enabled: false
@@ -152,25 +156,25 @@ sonarr:
       repository: "linuxserver/sonarr"
       tag: *sonarr
       pullPolicy: IfNotPresent
-    extraVolumes: 
+    extraVolumes:
       - name: config-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/sonarr-config
       - name: downloads-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
-        nfs: 
+        nfs:
           server: *nfs-server
-          path: /volume1/media
-    extraVolumeMounts: 
+          path: /volume1/media/media
+    extraVolumeMounts:
       - mountPath: /config
         name: config-volume
-      - mountPath: /mnt/archive
+      - mountPath: /mnt/archive/media
         name: archive-volume
-      - mountPath: /mnt/downloads 
+      - mountPath: /mnt/downloads
         name: downloads-volume
   ingress:
     enabled: false
@@ -192,27 +196,54 @@ transmission:
       repository: "linuxserver/transmission"
       tag: *transmission
       pullPolicy: IfNotPresent
-    extraVolumes: 
+    extraVolumes:
       - name: config-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare/k8s/volumes/transmission-config
       - name: downloads-volume
-        nfs: 
+        nfs:
           server: *nfs-server
           path: /volumeUSB1/usbshare
       - name: archive-volume
-        nfs: 
+        nfs:
           server: *nfs-server
-          path: /volume1/media
-    extraVolumeMounts: 
+          path: /volume1/media/media
+    extraVolumeMounts:
       - mountPath: /config
         name: config-volume
-      - mountPath: /mnt/archive
+      - mountPath: /mnt/archive/media
         name: archive-volume
-      - mountPath: /mnt/downloads 
+      - mountPath: /mnt/downloads
         name: downloads-volume
   ingress:
     enabled: false
     hostname: "transmission.k3s.home"
+    path: /
+
+tautulli:
+  deploy:
+    containerPorts:
+      http: 8181
+    image:
+      repository: "linuxserver/tautulli"
+      tag: *tautulli
+      pullPolicy: IfNotPresent
+    extraVolumes:
+      - name: config-volume
+        nfs:
+          server: *nfs-server
+          path: /volume1/k8s/volumes/tautulli-config
+      - name: plex-server
+        nfs:
+          server: *nfs-server
+          path: /volume1/PlexMediaServer/
+    extraVolumeMounts:
+      - mountPath: /config
+        name: config-volume
+      - mountPath: /plex-server
+        name: plex-server
+  ingress:
+    enabled: false
+    hostname: "tautulli.k3s.home"
     path: /

@@ -41,3 +41,6 @@ dependencies:
   - name: media-container
     version: 0.1.0
     alias: transmission
+  - name: media-container
+    version: 0.1.0
+    alias: tautulli

@@ -8,3 +8,6 @@ install-chart:
 		--namespace $(CHART_NAMESPACE) \
 		--create-namespace \
 		--install
+
+test:
+	helm template ./ --namespace $(CHART_NAMESPACE)  | datree test -

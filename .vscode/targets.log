@@ -1,0 +1,229 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.3
+# Built for aarch64-unknown-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Mon Jul 25 12:42:23 2022
+
+# Variables
+
+# environment
+LC_ALL = C
+# makefile (from 'makefile', line 2)
+CHART_PROJECT := "media-center"
+# environment
+VSCODE_CWD = /home/jfms7s
+# environment
+TEXTDOMAIN = Linux-PAM
+# default
+MAKE_COMMAND := make
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+PYENV_SHELL = bash
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /mnt/homes/jfms7s/git/helm-media-center
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+LANG = C
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /mnt/homes/jfms7s/git/helm-media-center
+# environment
+SPARK_HOME = /opt/spark/
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+WALLABY_PRODUCTION = true
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST := makefile
+# automatic
+@F = $(notdir $@)
+# environment
+XDG_SESSION_TYPE = tty
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+*F = $(notdir $*)
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1001/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# default
+MAKE_HOST := aarch64-unknown-linux-gnu
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /home/jfms7s/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/bin/remote-cli:/home/jfms7s/.pyenv/shims:/home/jfms7s/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+# default
+MAKEFILES := 
+# environment
+MOTD_SHOWN = pam
+# automatic
+^F = $(notdir $^)
+# environment
+SSH_CLIENT = 192.168.0.244 54937 22
+# makefile (from 'makefile', line 1)
+CHART_NAMESPACE := "media-center"
+# automatic
+?F = $(notdir $?)
+# environment
+LS_COLORS = 
+# automatic
++F = $(notdir $+)
+# environment
+PYENV_ROOT = /home/jfms7s/.pyenv
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+BROWSER = /home/jfms7s/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/bin/helpers/browser.sh
+# environment
+LOGNAME = jfms7s
+# makefile
+.DEFAULT_GOAL := install-chart
+# environment
+USER = jfms7s
+# default
+MAKE_VERSION := 4.3
+# environment
+VSCODE_AGENT_FOLDER = /home/jfms7s/.vscode-server
+# environment
+_ = /home/jfms7s/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/node
+# environment
+XDG_RUNTIME_DIR = /run/user/1001
+# environment
+VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-4a98ce31-8dcb-46fc-afca-c27e24288135.sock
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/jfms7s
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+XDG_SESSION_ID = 116
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# environment
+SSH_CONNECTION = 192.168.0.244 54937 192.168.0.11 22
+# variable set hash-table stats:
+# Load=70/1024=7%, Rehash=0, Collisions=1/100=1%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 38, inode 928849): 11 files, no impossibilities.
+
+# 11 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+test:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 13):
+	helm template ./ --namespace $(CHART_NAMESPACE)  | datree test -
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-23 01:02:25.6013341
+#  File has been updated.
+#  Successfully updated.
+
+install-chart:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 5):
+	helm upgrade \
+		$(CHART_PROJECT) \
+		./ \
+		--namespace $(CHART_NAMESPACE) \
+		--create-namespace \
+		--install
+
+# files hash-table stats:
+# Load=6/1024=1%, Rehash=0, Collisions=0/16=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 18 / storage = 163 B / avg = 9 B
+# current buf: size = 8162 B / used = 163 B / count = 18 / avg = 9 B
+
+# strcache performance: lookups = 24 / hit rate = 25%
+# hash-table stats:
+# Load=18/8192=0%, Rehash=0, Collisions=0/24=0%
+# Finished Make data base on Mon Jul 25 12:42:23 2022
+
+ 

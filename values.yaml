@@ -28,7 +28,7 @@ bazaar:
       - name: config-volume
         nfs:
           server: *nfs-server
-          path: /volumeUSB1/usbshare/k8s/volumes/bazarr-config
+          path: /volume1/k8s/volumes/bazarr-config
       - name: downloads-volume
         nfs:
           server: *nfs-server
@@ -36,7 +36,7 @@ bazaar:
       - name: archive-volume
         nfs:
           server: *nfs-server
-          path: /volume1/media/media
+          path: /volume1/media/
     extraVolumeMounts:
       - mountPath: /config
         name: config-volume
@@ -61,7 +61,7 @@ overseerr:
       - name: config-volume
         nfs:
           server: *nfs-server
-          path: /volumeUSB1/usbshare/k8s/volumes/overseerr-config
+          path: /volume1/k8s/volumes/overseerr-config
       - name: downloads-volume
         nfs:
           server: *nfs-server
@@ -69,7 +69,7 @@ overseerr:
       - name: archive-volume
         nfs:
           server: *nfs-server
-          path: /volume1/media/media
+          path: /volume1/media/
     extraVolumeMounts:
       - mountPath: /config
         name: config-volume
@@ -94,7 +94,7 @@ prowlarr:
       - name: config-volume
         nfs:
           server: *nfs-server
-          path: /volumeUSB1/usbshare/k8s/volumes/prowlarr-config
+          path: /volume1/k8s/volumes/prowlarr-config
       - name: downloads-volume
         nfs:
           server: *nfs-server
@@ -102,7 +102,7 @@ prowlarr:
       - name: archive-volume
         nfs:
           server: *nfs-server
-          path: /volume1/media/media
+          path: /volume1/media/
     extraVolumeMounts:
       - mountPath: /config
         name: config-volume
@@ -127,7 +127,7 @@ radarr:
       - name: config-volume
         nfs:
           server: *nfs-server
-          path: /volumeUSB1/usbshare/k8s/volumes/radarr-config
+          path: /volume1/k8s/volumes/radarr-config
       - name: downloads-volume
         nfs:
           server: *nfs-server
@@ -135,7 +135,7 @@ radarr:
       - name: archive-volume
         nfs:
           server: *nfs-server
-          path: /volume1/media/media
+          path: /volume1/media/
     extraVolumeMounts:
       - mountPath: /config
         name: config-volume
@@ -160,7 +160,7 @@ sonarr:
       - name: config-volume
         nfs:
           server: *nfs-server
-          path: /volumeUSB1/usbshare/k8s/volumes/sonarr-config
+          path: /volume1/k8s/volumes/sonarr-config
       - name: downloads-volume
         nfs:
           server: *nfs-server
@@ -168,7 +168,7 @@ sonarr:
       - name: archive-volume
         nfs:
           server: *nfs-server
-          path: /volume1/media/media
+          path: /volume1/media/
     extraVolumeMounts:
       - mountPath: /config
         name: config-volume
@@ -200,7 +200,7 @@ transmission:
       - name: config-volume
         nfs:
           server: *nfs-server
-          path: /volumeUSB1/usbshare/k8s/volumes/transmission-config
+          path: /volume1/k8s/volumes/transmission-config
       - name: downloads-volume
         nfs:
           server: *nfs-server
@@ -208,7 +208,7 @@ transmission:
       - name: archive-volume
         nfs:
           server: *nfs-server
-          path: /volume1/media/media
+          path: /volume1/media/
     extraVolumeMounts:
       - mountPath: /config
         name: config-volume

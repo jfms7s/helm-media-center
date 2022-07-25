@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/homes/jfms7s/git/helm-media-center'
+helm upgrade \
+	"media-center" \
+	./ \
+	--namespace "media-center" \
+	--create-namespace \
+	--install
+make: Leaving directory '/mnt/homes/jfms7s/git/helm-media-center'
+ 

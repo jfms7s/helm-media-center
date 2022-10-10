@@ -23,24 +23,31 @@ version: 0.1.0
 # It is recommended to use it with quotes.
 appVersion: "1.16.0"
 dependencies:
-  - name: media-container
+  - name: common
     version: 0.1.0
+    repository: "https://jfms7s.github.io/helm-charts"
     alias: bazaar
-  - name: media-container
+  - name: common
     version: 0.1.0
+    repository: "https://jfms7s.github.io/helm-charts"
     alias: overseerr
-  - name: media-container
+  - name: common
     version: 0.1.0
+    repository: "https://jfms7s.github.io/helm-charts"
     alias: prowlarr
-  - name: media-container
+  - name: common
     version: 0.1.0
+    repository: "https://jfms7s.github.io/helm-charts"
     alias: radarr
-  - name: media-container
+  - name: common
     version: 0.1.0
+    repository: "https://jfms7s.github.io/helm-charts"
     alias: sonarr
-  - name: media-container
+  - name: common
     version: 0.1.0
+    repository: "https://jfms7s.github.io/helm-charts"
     alias: transmission
-  - name: media-container
+  - name: common
     version: 0.1.0
+    repository: "https://jfms7s.github.io/helm-charts"
     alias: tautulli

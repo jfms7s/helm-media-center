@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for aarch64-unknown-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jul 25 12:42:23 2022
+# Make data base, printed on Mon Oct 10 23:51:19 2022
 
 # Variables
 
@@ -53,7 +51,7 @@ CURDIR := /mnt/homes/jfms7s/git/helm-media-center
 # environment
 SPARK_HOME = /opt/spark/
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -93,7 +91,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/jfms7s/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/bin/remote-cli:/home/jfms7s/.pyenv/shims:/home/jfms7s/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+PATH = /home/jfms7s/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/bin/remote-cli:/home/jfms7s/.local/bin:/home/jfms7s/.pyenv/shims:/home/jfms7s/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
 # default
 MAKEFILES := 
 # environment
@@ -101,7 +99,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-SSH_CLIENT = 192.168.0.244 54937 22
+SSH_CLIENT = 192.168.0.244 53716 22
 # makefile (from 'makefile', line 1)
 CHART_NAMESPACE := "media-center"
 # automatic
@@ -115,7 +113,7 @@ PYENV_ROOT = /home/jfms7s/.pyenv
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-BROWSER = /home/jfms7s/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/bin/helpers/browser.sh
+BROWSER = /home/jfms7s/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/bin/helpers/browser.sh
 # environment
 LOGNAME = jfms7s
 # makefile
@@ -127,11 +125,11 @@ MAKE_VERSION := 4.3
 # environment
 VSCODE_AGENT_FOLDER = /home/jfms7s/.vscode-server
 # environment
-_ = /home/jfms7s/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/node
+_ = /home/jfms7s/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/node
 # environment
 XDG_RUNTIME_DIR = /run/user/1001
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-4a98ce31-8dcb-46fc-afca-c27e24288135.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1001/vscode-ipc-300b6571-b11b-44d2-b2c8-d7027ac359f5.sock
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -141,7 +139,7 @@ HOME = /home/jfms7s
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-XDG_SESSION_ID = 116
+XDG_SESSION_ID = 1
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -151,7 +149,7 @@ SUFFIXES :=
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SSH_CONNECTION = 192.168.0.244 54937 192.168.0.11 22
+SSH_CONNECTION = 192.168.0.244 53716 192.168.0.11 22
 # variable set hash-table stats:
 # Load=70/1024=7%, Rehash=0, Collisions=1/100=1%
 
@@ -161,9 +159,9 @@ SSH_CONNECTION = 192.168.0.244 54937 192.168.0.11 22
 
 # Directories
 
-# . (device 38, inode 928849): 11 files, no impossibilities.
+# . (device 37, inode 928849): 12 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -218,12 +216,14 @@ install-chart:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 163 B / avg = 9 B
-# current buf: size = 8162 B / used = 163 B / count = 18 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 19 / storage = 174 B / avg = 9 B
+# current buf: size = 8162 B / used = 174 B / count = 19 / avg = 9 B
 
-# strcache performance: lookups = 24 / hit rate = 25%
+# strcache performance: lookups = 25 / hit rate = 24%
 # hash-table stats:
-# Load=18/8192=0%, Rehash=0, Collisions=0/24=0%
-# Finished Make data base on Mon Jul 25 12:42:23 2022
+# Load=19/8192=0%, Rehash=0, Collisions=0/25=0%
+# Finished Make data base on Mon Oct 10 23:51:19 2022
 
  
+make: *** No rule to make target 'all'.  Stop.
+

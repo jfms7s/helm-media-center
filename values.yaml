@@ -70,7 +70,7 @@ overseerr:
         name: downloads-volume
   ingress:
     enabled: false
-    hostname: "overseerr.jfms7s-home-porto.myds.me"
+    hostname: "overseerr.k3s.home"
     path: /
 
 prowlarr:

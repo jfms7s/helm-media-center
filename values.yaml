@@ -15,19 +15,19 @@ $refs:
         path: /volume1/media/
   dockerImages:
     ## https://hub.docker.com/r/linuxserver/bazarr/tags
-    bazarr: &bazarr "1.1.0"
+    bazarr: &bazarr "1.2.2"
     ## https://hub.docker.com/r/linuxserver/overseerr/tags
-    overseerr: &overseerr "1.29.1"
+    overseerr: &overseerr "1.33.0"
     ## https://hub.docker.com/r/linuxserver/prowlarr/tags
-    prowlarr: &prowlarr "0.4.3-nightly"
+    prowlarr: &prowlarr "1.7.1-nightly"
     ## https://hub.docker.com/r/linuxserver/radarr/tags
-    radarr: &radarr "4.1.0"
+    radarr: &radarr "4.6.4-nightly"
     ## https://hub.docker.com/r/linuxserver/sonarr/tags
-    sonarr: &sonarr "3.0.8"
+    sonarr: &sonarr "3.0.10"
     ## https://hub.docker.com/r/linuxserver/transmission/tags
-    transmission: &transmission "version-3.00-r5"
+    transmission: &transmission "4.0.3"
     ## https://hub.docker.com/r/linuxserver/tautulli/tags
-    tautulli: &tautulli "2.10.2"
+    tautulli: &tautulli "2.12.4"
 
 bazaar:
   deploy:

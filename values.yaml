@@ -162,9 +162,6 @@ flood:
 
 transmission:
   deploy:
-    env:
-      - name: TRANSMISSION_WEB_HOME
-        value: "/flood-for-transmission/"
     containerPorts:
       http: 9091
       bit-torrent: 51413

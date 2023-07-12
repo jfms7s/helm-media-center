@@ -51,3 +51,8 @@ dependencies:
     version: 0.1.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: tautulli
+  - name: common
+    version: 0.1.0
+    repository: "https://jfms7s.github.io/helm-charts"
+    alias: flood
+

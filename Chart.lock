@@ -20,5 +20,8 @@ dependencies:
 - name: common
   repository: https://jfms7s.github.io/helm-charts
   version: 0.1.0
-digest: sha256:5eae7dc604264cb59311761d1d0538acf728b618c6e0f16e022528dc8cced317
-generated: "2022-10-10T23:49:18.223721825+01:00"
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.1.0
+digest: sha256:ddda47989c22720bf37d5383079a0434686bf60218f413b9c1647ee70235abe0
+generated: "2023-07-13T00:23:09.481436904+01:00"

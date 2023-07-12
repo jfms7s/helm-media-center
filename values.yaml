@@ -28,7 +28,9 @@ $refs:
     transmission: &transmission "4.0.3"
     ## https://hub.docker.com/r/linuxserver/tautulli/tags
     tautulli: &tautulli "2.12.4"
-
+    ## https://hub.docker.com/r/jesec/flood/tags
+    flood: &flood "4.7.0"
+  
 bazaar:
   deploy:
     containerPorts:
@@ -138,6 +140,25 @@ sonarr:
     enabled: false
     hostname: "sonarr.k3s.home"
     path: /
+
+flood:
+  deploy:
+    containerPorts:
+      http: 3000
+    image:
+      repository: "jesec/flood"
+      tag: *flood
+      pullPolicy: IfNotPresent
+    extraVolumes: *volumes
+    extraVolumeMounts:
+      - mountPath: /config
+        name: config-volume
+        subPath: flood-config
+  ingress:
+    enabled: false
+    hostname: "flood.k3s.home"
+    path: /
+
 
 transmission:
   deploy:

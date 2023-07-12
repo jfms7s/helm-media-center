@@ -8,7 +8,7 @@ $refs:
     - name: downloads-volume
       nfs:
         server: *nfs-server
-        path: /volume1/k8s/downloads/
+        path: /volume1/downloads/
     - name: archive-volume
       nfs:
         server: *nfs-server

@@ -1,0 +1,27 @@
+dependencies:
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.3.0
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.3.0
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.3.0
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.3.0
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.3.0
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.3.0
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.3.0
+- name: common
+  repository: https://jfms7s.github.io/helm-charts
+  version: 0.3.0
+digest: sha256:b4aded8e680b3e250a7c45302f2cd62166c98826351531aa39dfa584fb1be380
+generated: "2025-11-18T22:13:37.627276091Z"

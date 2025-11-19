@@ -1,0 +1,390 @@
+$refs:
+  nfs-server: &nfs-server 192.168.0.4
+  volumes: &volumes
+    - name: config-volume
+      nfs:
+        server: *nfs-server
+        path: /volume1/k8s/volumes/
+    - name: downloads-volume
+      nfs:
+        server: *nfs-server
+        path: /volume1/downloads/
+    - name: archive-volume
+      nfs:
+        server: *nfs-server
+        path: /volume1/media/
+  dockerImages:
+    ## https://hub.docker.com/r/linuxserver/bazarr/tags
+    bazarr: &bazarr "1.5.3"
+    ## https://hub.docker.com/r/linuxserver/overseerr/tags
+    overseerr: &overseerr "1.34.0"
+    ## https://hub.docker.com/r/linuxserver/prowlarr/tags
+    prowlarr: &prowlarr "2.0.5"
+    ## https://hub.docker.com/r/linuxserver/radarr/tags
+    radarr: &radarr "5.27.5"
+    ## https://hub.docker.com/r/linuxserver/sonarr/tags
+    sonarr: &sonarr "4.0.15"
+    ## https://hub.docker.com/r/linuxserver/transmission/tags
+    transmission: &transmission "4.0.6"
+    ## https://hub.docker.com/r/linuxserver/tautulli/tags
+    tautulli: &tautulli "2.16.0"
+    ## https://hub.docker.com/r/jesec/flood/tags
+    flood: &flood "4.10.0"
+    ## https://hub.docker.com/r/jesec/flood/tags
+    audiobook: &audiobook "2.30.0"
+bazaar:
+  fullnameOverride: bazaar
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 6767
+    image:
+      repository: "linuxserver/bazarr"
+      tag: *bazarr
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes: *volumes
+    volumeMounts:
+      - mountPath: /config
+        name: config-volume
+        subPath: bazarr-config
+      - mountPath: /mnt/archive/media
+        name: archive-volume
+      - mountPath: /mnt/downloads
+        name: downloads-volume
+  service:
+    type: ClusterIP
+    ports:
+      http: 6767
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "bazarr.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http
+
+overseerr:
+  fullnameOverride: overseerr
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 5055
+    image:
+      repository: "lscr.io/linuxserver/overseerr"
+      tag: *overseerr
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes: *volumes
+    volumeMounts:
+      - mountPath: /config
+        name: config-volume
+        subPath: overseerr-config
+      - mountPath: /mnt/archive/media
+        name: archive-volume
+      - mountPath: /mnt/downloads
+        name: downloads-volume
+  service:
+    type: ClusterIP
+    ports:
+      http: 5055
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "overseerr.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http
+
+prowlarr:
+  fullnameOverride: prowlarr
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 9696
+    image:
+      repository: "linuxserver/prowlarr"
+      tag: *prowlarr
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes: *volumes
+    volumeMounts:
+      - mountPath: /config
+        name: config-volume
+        subPath: prowlarr-config
+      - mountPath: /mnt/archive/media
+        name: archive-volume
+      - mountPath: /mnt/downloads
+        name: downloads-volume
+  service:
+    type: ClusterIP
+    ports:
+      http: 9696
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "prowlarr.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http
+
+radarr:
+  fullnameOverride: radarr
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 7878
+    image:
+      repository: "linuxserver/radarr"
+      tag: *radarr
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes: *volumes
+    volumeMounts:
+      - mountPath: /config
+        name: config-volume
+        subPath: radarr-config
+      - mountPath: /mnt/archive/media
+        name: archive-volume
+      - mountPath: /mnt/downloads
+        name: downloads-volume
+  service:
+    type: ClusterIP
+    ports:
+      http: 7878
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "radarr.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http
+
+sonarr:
+  fullnameOverride: sonarr
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 8989
+    image:
+      repository: "linuxserver/sonarr"
+      tag: *sonarr
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes: *volumes
+    volumeMounts:
+      - mountPath: /config
+        name: config-volume
+        subPath: sonarr-config
+      - mountPath: /mnt/archive/media
+        name: archive-volume
+      - mountPath: /mnt/downloads
+        name: downloads-volume
+  service:
+    type: ClusterIP
+    ports:
+      http: 8989
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "sonarr.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http
+
+flood:
+  fullnameOverride: flood
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 3000
+    image:
+      repository: "jesec/flood"
+      tag: *flood
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes: *volumes
+    volumeMounts:
+      - mountPath: /config
+        name: config-volume
+        subPath: flood-config
+  service:
+    type: ClusterIP
+    ports:
+      http: 3000
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "flood.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http
+
+
+transmission:
+  fullnameOverride: transmission
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 9091
+      bit-torrent: 51413
+      bit-torrent-udp:
+        port: 51413
+        protocol: UDP
+    image:
+      repository: "linuxserver/transmission"
+      tag: *transmission
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes: *volumes
+    volumeMounts:
+      - mountPath: /config
+        name: config-volume
+        subPath: transmission-config
+      - mountPath: /mnt/archive/media
+        name: archive-volume
+      - mountPath: /mnt/downloads
+        name: downloads-volume
+  service:
+    type: ClusterIP
+    ports:
+      http: 9091
+      bit-torrent: 51413
+      bit-torrent-udp:
+        port: 51413
+        protocol: UDP
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "transmission.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http
+
+tautulli:
+  fullnameOverride: tautulli
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 8181
+    image:
+      repository: "linuxserver/tautulli"
+      tag: *tautulli
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes:
+      - name: config-volume
+        nfs:
+          server: *nfs-server
+          path: /volume1/k8s/volumes/tautulli-config
+      - name: plex-server
+        nfs:
+          server: *nfs-server
+          path: /volume1/PlexMediaServer/
+    volumeMounts:
+      - mountPath: /config
+        name: config-volume
+      - mountPath: /plex-server
+        name: plex-server
+  service:
+    type: ClusterIP
+    ports:
+      http: 8181
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "tautulli.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http
+
+audiobook:
+  fullnameOverride: audiobook
+  deploy:
+    replicas: 1
+    containerPorts:
+      http: 80
+    image:
+      repository: "ghcr.io/advplyr/audiobookshelf"
+      tag: *audiobook
+      pullPolicy: IfNotPresent
+    env:
+      - name: PUID
+        value: "0"
+      - name: PGID
+        value: "0"
+    volumes: *volumes
+    volumeMounts:
+      - mountPath: /audiobooks
+        name: archive-volume
+        subPath: audiobooks
+      - mountPath: /podcasts
+        name: archive-volume
+        subPath: podcasts
+      - mountPath: /config
+        name: config-volume
+        subPath: audiobook/config
+      - mountPath: /metadata
+        name: config-volume
+        subPath: audiobook/metadata
+  service:
+    type: ClusterIP
+    ports:
+      http: 80
+  ingress:
+    enabled: false
+    className: "traefik"
+    hosts:
+      - host: "audiobook.k3s.dragonbyte.myds.me"
+        paths:
+          - path: /
+            pathType: Prefix
+            port: http

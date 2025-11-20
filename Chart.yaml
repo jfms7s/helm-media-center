@@ -7,35 +7,35 @@ version: 0.1.0
 appVersion: "1.16.0"
 dependencies:
   - name: common
-    version: 0.3.0
+    version: 0.4.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: bazaar
   - name: common
-    version: 0.3.0
+    version: 0.4.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: overseerr
   - name: common
-    version: 0.3.0
+    version: 0.4.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: prowlarr
   - name: common
-    version: 0.3.0
+    version: 0.4.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: radarr
   - name: common
-    version: 0.3.0
+    version: 0.4.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: sonarr
   - name: common
-    version: 0.3.0
+    version: 0.4.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: transmission
   - name: common
-    version: 0.3.0
+    version: 0.4.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: tautulli
   - name: common
-    version: 0.3.0
+    version: 0.4.0
     repository: "https://jfms7s.github.io/helm-charts"
     alias: flood
 

@@ -1,27 +1,27 @@
 dependencies:
 - name: common
   repository: https://jfms7s.github.io/helm-charts
-  version: 0.4.0
+  version: 0.4.2
 - name: common
   repository: https://jfms7s.github.io/helm-charts
-  version: 0.4.0
+  version: 0.4.2
 - name: common
   repository: https://jfms7s.github.io/helm-charts
-  version: 0.4.0
+  version: 0.4.2
 - name: common
   repository: https://jfms7s.github.io/helm-charts
-  version: 0.4.0
+  version: 0.4.2
 - name: common
   repository: https://jfms7s.github.io/helm-charts
-  version: 0.4.0
+  version: 0.4.2
 - name: common
   repository: https://jfms7s.github.io/helm-charts
-  version: 0.4.0
+  version: 0.4.2
 - name: common
   repository: https://jfms7s.github.io/helm-charts
-  version: 0.4.0
+  version: 0.4.2
 - name: common
   repository: https://jfms7s.github.io/helm-charts
-  version: 0.4.0
-digest: sha256:c98030f17d295fa07cd926ce6f38098475ad562148b58feb8c661476a2c370b1
-generated: "2025-11-20T00:40:39.541769517Z"
+  version: 0.4.2
+digest: sha256:1474fa683c225ced9bdffcc1367291be28c96f4f08ad3901232ff789ed12ead2
+generated: "2025-11-20T23:00:40.574253691Z"

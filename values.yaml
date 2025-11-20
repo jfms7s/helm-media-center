@@ -36,8 +36,6 @@ bazaar:
   fullnameOverride: bazaar
   deploy:
     replicas: 1
-    containerPorts:
-      http: 6767
     image:
       repository: "linuxserver/bazarr"
       tag: *bazarr
@@ -61,21 +59,19 @@ bazaar:
     ports:
       http: 6767
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "bazarr.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
+            port: 6767
 
 overseerr:
   fullnameOverride: overseerr
   deploy:
     replicas: 1
-    containerPorts:
-      http: 5055
     image:
       repository: "lscr.io/linuxserver/overseerr"
       tag: *overseerr
@@ -99,21 +95,19 @@ overseerr:
     ports:
       http: 5055
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "overseerr.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
+            port: 5055
 
 prowlarr:
   fullnameOverride: prowlarr
   deploy:
     replicas: 1
-    containerPorts:
-      http: 9696
     image:
       repository: "linuxserver/prowlarr"
       tag: *prowlarr
@@ -137,21 +131,19 @@ prowlarr:
     ports:
       http: 9696
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "prowlarr.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
+            port: 9696
 
 radarr:
   fullnameOverride: radarr
   deploy:
     replicas: 1
-    containerPorts:
-      http: 7878
     image:
       repository: "linuxserver/radarr"
       tag: *radarr
@@ -175,21 +167,19 @@ radarr:
     ports:
       http: 7878
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "radarr.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
+            port: 7878
 
 sonarr:
   fullnameOverride: sonarr
   deploy:
     replicas: 1
-    containerPorts:
-      http: 8989
     image:
       repository: "linuxserver/sonarr"
       tag: *sonarr
@@ -213,21 +203,19 @@ sonarr:
     ports:
       http: 8989
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "sonarr.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
+            port: 8989
 
 flood:
   fullnameOverride: flood
   deploy:
     replicas: 1
-    containerPorts:
-      http: 3000
     image:
       repository: "jesec/flood"
       tag: *flood
@@ -247,26 +235,19 @@ flood:
     ports:
       http: 3000
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "flood.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
-
+            port: 3000
 
 transmission:
   fullnameOverride: transmission
   deploy:
     replicas: 1
-    containerPorts:
-      http: 9091
-      bit-torrent: 51413
-      bit-torrent-udp:
-        port: 51413
-        protocol: UDP
     image:
       repository: "linuxserver/transmission"
       tag: *transmission
@@ -294,21 +275,19 @@ transmission:
         port: 51413
         protocol: UDP
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "transmission.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
+            port: 9091
 
 tautulli:
   fullnameOverride: tautulli
   deploy:
     replicas: 1
-    containerPorts:
-      http: 8181
     image:
       repository: "linuxserver/tautulli"
       tag: *tautulli
@@ -337,21 +316,19 @@ tautulli:
     ports:
       http: 8181
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "tautulli.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
+            port: 8181
 
 audiobook:
   fullnameOverride: audiobook
   deploy:
     replicas: 1
-    containerPorts:
-      http: 80
     image:
       repository: "ghcr.io/advplyr/audiobookshelf"
       tag: *audiobook
@@ -380,11 +357,11 @@ audiobook:
     ports:
       http: 80
   ingress:
-    enabled: false
+    enabled: true
     className: "traefik"
     hosts:
       - host: "audiobook.k3s.dragonbyte.myds.me"
         paths:
           - path: /
             pathType: Prefix
-            port: http
+            port: 80
